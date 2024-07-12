@@ -1,16 +1,15 @@
-// Funktion zum Hinzufügen einer Aufgabe
+
 function deleteTask(event) {
     event.target.parentElement.remove();
     saveTasks();
   }
-  
-  // Funktion zum Markieren einer Aufgabe als erledigt
+
   function toggleTask(event) {
     event.target.classList.toggle("completed");
   }
 
 
-// Funktion zum Hinzufügen einer Aufgabe
+// Aufgabe
 function addTask() {
     var taskInput = document.getElementById("taskInput");
     var taskList = document.getElementById("taskList");
@@ -70,7 +69,7 @@ function addTask() {
     }
   }
   
-  // Funktion zum Hinzufügen eines Fälligkeitsdatums zu einer Aufgabe
+
   function addDueDate(event) {
     var dueDate = prompt("Enter due date (YYYY-MM-DD):");
     if (dueDate !== null && dueDate !== "") {
@@ -79,7 +78,7 @@ function addTask() {
     }
   }
   
-  // Funktion zum Hinzufügen einer Priorität zu einer Aufgabe
+ 
   function addPriority(event) {
     var priority = prompt("Enter priority (High, Medium, Low):");
     if (priority !== null && priority !== "") {
@@ -88,12 +87,12 @@ function addTask() {
     }
   }
   
-  // Laden der Aufgaben beim Laden der Seite
+
   window.onload = function () {
     loadTasks();
   };
   
-  // Funktion zum Laden der Aufgaben aus dem lokalen Speicher
+
   function loadTasks() {
     var tasks = JSON.parse(localStorage.getItem("tasks"));
     var taskList = document.getElementById("taskList");
@@ -110,8 +109,8 @@ function addTask() {
         deleteButton.className = "delete-btn";
         deleteButton.addEventListener("click", deleteTask);
         li.addEventListener("click", toggleTask);
-        li.addEventListener("contextmenu", addDueDate); // Rechtsklick für Fälligkeitsdatum
-        li.addEventListener("dblclick", addPriority); // Doppelklick für Priorität
+        li.addEventListener("contextmenu", addDueDate);
+        li.addEventListener("dblclick", addPriority); 
       }
     }
   }
